@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    margin-top: 50px;
+    font-family: sans-serif;
+}
+
+p{
+    text-align: center;
+    margin-top: 20px;
+}
+.two-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.add-user{
+    color: black;
+    font-size: .8rem;
+    height: 40px;
+    width: 150px;
+    border-radius: 8px;
+    background-color: aqua;
+    margin-right: 10px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.remove{
+    color: black;
+    height: 40px;
+    width: 110px;
+    border-radius: 8px;
+    font-size: .8rem;
+    background-color: lightcoral;
+    margin-left: 10px;
+    font-family: sans-serif;
+    cursor: pointer;
+}

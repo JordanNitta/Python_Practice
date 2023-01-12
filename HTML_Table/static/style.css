@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    justify-content: center;
+    align-items: center;
+}
+table{
+    color: blue;
+    margin: auto;
+}
+th{
+    font-size: 1.2rem;
+    border: 2px solid black
+}
+thead{
+}
+.main-table-tags{
+}
+
+td{
+    font-size: 1.2rem;
+    color: red;
+    width: 200px;
+    border: 2px solid black
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dojo Survey</h1>
+        <form action="/process" method="post">
+            <label for="name" class="name-label">Name:</label><br>
+            <input type="text" name="name" id="name" placeholder="name">
+            <label for="dojo-location" class="dojo-location-label">Dojo Location:</label>
+            <select name="dojo-location" id="dojo-location">
+                <option value="">-- Select A Location --</option>
+                <option value="San-Jose">San Jose</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Online">Online</option>
+                <option value="Burbank">Burbank</option>
+                <option value="Bellevue">Bellevue</option>
+            </select>
+            <label for="favorite-language" class="favorite-language-label">Favorite Language:</label>
+            <select name="favorite-language" id="favorite-language">
+                <option value="">-- Select A Favorite Language --</option>
+                <option value="Python">Python</option>
+                <option value="JS">JS</option>
+                <option value="HTML5">HTML5</option>
+                <option value="CSS">CSS</option>
+                <option value="Java">Java</option>
+                <option value="Swift">Swift/option>
+            </select>
+            <label for="comments" class="comments">Comments:</label>
+            <textarea name="comments" id="comments"></textarea>
+            <a href="/">
+                <button>Submit</button>
+            </a>
+        </form>
+    </div>
+</body>
+
+</html>

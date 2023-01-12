@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    color: black;
+    font-size: 4rem;
+    margin: ;
+    text-align: center;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    flex-wrap: wrap;
+}
+
+.box{
+    height: 150px;
+    width: 150px;
+    margin: 40px;
+    border-radius: 8px;
+    border: 2px solid black;
+    transition: transform .2s ease-in-out;
+    background-color: aqua;
+    animation-name: rotate;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+@media screen and (min-width: 720px) {
+    .box{
+        height: 150px;
+        width: 150px;
+    }
+    
+    
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+#dog{
+    height: 150px;
+    width: 150px;
+    border-radius: 5px;
+    transition: transform .4s ease-in-out;
+}
+#dog:hover{
+    transform: scale(1.4);
+    border: 2px solid black;
+}
+
