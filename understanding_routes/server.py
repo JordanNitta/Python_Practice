@@ -4,7 +4,11 @@ app = Flask(__name__)
 #Create a root route ("/") that responds with "Hello World!"
 @app.route('/')
 def hello_world():
-    return "Hello World"
+    return render_template("index.html")
+
+@app.route('/<color>')
+def color(color):
+    return render_template("index.html", color=color)
 
 #Create a route that responds with "Dojo!"
 @app.route('/dojo')

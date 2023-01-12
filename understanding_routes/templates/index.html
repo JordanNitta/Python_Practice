@@ -7,8 +7,17 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" 
     href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        h1{
+            color: blue;
+        }
+        h2{
+            color: {{color}};
+        }
+    </style>
 </head>
 <body>
-    <h1>{{Hello World}}</h1>
+    <h1>Hello World</h1>
+    <h2>{{color}}</h2>
 </body>
 </html>

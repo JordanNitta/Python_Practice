@@ -6,5 +6,6 @@
 
 h1{
     text-align: center;
-    color: royalblue
+    color: royalblue;
+    margin: 0 auto;
 }
