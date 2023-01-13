@@ -28,8 +28,8 @@ def repeat(num, word):
     output = ''
     for i in range(0,num):
         output += f"<h1>{word}</h1>"
-    return output
-    #return f"{word * num}"
+    return f"{word * num}"
+    #return output
     
 
         
