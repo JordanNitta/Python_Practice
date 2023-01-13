@@ -19,7 +19,7 @@ class BankAccount:
     def withdraw(self, amount): # This method will decrease the balance by the amount if there is sufficient funds if not it will print(Insufficient funds: Charging a $5 fee")
         if self.balance > amount:
             self.balance -= amount
-            print(f"{self.first_name} {self.last_name}, Withdrew ${amount}. Available balance: ${self.balance}")
+            print(f"{self.first_name} {self.last_name}: Withdrawn ${amount}. Available balance: ${self.balance}")
         else:
             print("Insufficient funds: Charging a $5 fee")
             self.balance -= 5
@@ -65,30 +65,30 @@ class User:
     def make_deposit(self, amount, account):
         if account == "checking":
             self.checking.deposit(amount) 
-            print(f"Checking Balance is now: {self.checking.balance}")
+            print(f"{self.first_name} {self.last_name}: Checking Balance is now: ${self.checking.balance}")
         elif account == "saving":
             self.saving.deposit(amount)
-            print(f"Savings Balance is now: {self.saving.balance}")
+            print(f"{self.first_name} {self.last_name}: Savings Balance is now: ${self.saving.balance}")
         return self
 
     def make_withdraw(self, amount, account):
         if account == "checking":
             self.checking.withdraw(amount)
-            print(f"Withdrawn ${amount} dollars from Checking Balance now is: {amount}")
+            print(f"{self.first_name} {self.last_name}: Withdrawn ${amount} dollars from Checking Balance now is: {amount}")
         elif account == "saving":
             self.saving.withdraw(amount)
-            print(f"Withdrawn ${amount} dollars from saving Balance now is: {amount}")
+            print(f"{self.first_name} {self.last_name}: Withdrawn ${amount} dollars from saving Balance now is: {amount}")
         return self
 
     def transfer_money(self, amount, person, account):
         if account == "checking":
             if self.checking.balance < amount:
-                print("Insuffient Funds")
+                print("Insuffient Funds:")
                 return self
             else: 
                 self.checking.withdraw(amount)
                 person.checking.deposit(amount)
-                print(f"Transfering: ${amount} from {self.first_name} {self.last_name} Checking Account To {person.first_name} {person.last_name} Checking Account")
+                print(f"Transfering: ${amount} from {self.first_name} {self.last_name} Checking Account To: {person.first_name} {person.last_name} Checking Account")
                 return self
         elif account == "saving":
             if self.saving.balance < amount:
@@ -97,7 +97,7 @@ class User:
             else:
                 self.saving.withdraw(amount)
                 person.saving.deposit(amount)
-                print(f"Transfering: ${amount} from {self.first_name} {self.last_name} Saving Account To {person.first_name} {person.last_name} Saving Account")
+                print(f"Transfering: ${amount} from {self.first_name} {self.last_name} Saving Account To: {person.first_name} {person.last_name} Saving Account")
                 return self
 
     def display_user_balance(self):
@@ -106,8 +106,8 @@ class User:
         return self
 
 user_1 = User("Jimmy", "Bill", "b@email.com")
-user_1.checking.display_balance()
-user_1.saving.display_balance()
+user_1.checking.display_balance() #This line wont say if its in checking or saving will just display balance
+user_1.saving.display_balance() #This line wont say if its in checking or saving will just display balance
 
 user_1.make_deposit(1000, "checking")
 user_1.make_deposit(5000, "saving")
