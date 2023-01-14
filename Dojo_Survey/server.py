@@ -18,7 +18,6 @@ def process():
 
 @app.route('/show')
 def show():
-
     return render_template('show.html')
 
 @app.route('/reset')
