@@ -13,7 +13,11 @@
     <div id="container">
         {%for boxes in range(repeat_boxes)%}
         <div class="box">
-        <img src="{{ url_for('static', filename='dog.jpeg') }}" id="dog" alt="australian shepeard">
+            {% if boxes % 2 == 1 %}
+                <img src="{{ url_for('static', filename='dog.jpeg') }}" id="dog" alt="australian shepeard">
+                {% else %}
+                    <img src="{{ url_for('static', filename='dog1.jpeg') }}" id="dog" alt="australian shepeard">
+            {% endif %}
         </div>
         {%endfor%}
     </div>
