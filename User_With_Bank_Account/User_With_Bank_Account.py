@@ -62,6 +62,7 @@ class User:
         self.checking = BankAccount(self.first_name, self.last_name, 0.1, 0) #instance of the bank account class.
         self.saving = BankAccount(self.first_name, self.last_name, 0.2, 0)
 
+    # Making a deposit to checking or savings using the deposit method defined in the bankaccount class
     def make_deposit(self, amount, account):
         if account == "checking":
             self.checking.deposit(amount) 
@@ -71,6 +72,7 @@ class User:
             print(f"{self.first_name} {self.last_name}: Savings Balance is now: ${self.saving.balance}")
         return self
 
+    # Making a withdraw from checking or savings using the withdraw method defined in the bankaccount class
     def make_withdraw(self, amount, account):
         if account == "checking":
             self.checking.withdraw(amount)
@@ -80,6 +82,7 @@ class User:
             print(f"{self.first_name} {self.last_name}: Withdrawn ${amount} dollars from saving Balance now is: {amount}")
         return self
 
+    #This allow are users to be able to transfer money to each other with adding person into the parameter
     def transfer_money(self, amount, person, account):
         if account == "checking":
             if self.checking.balance < amount:
