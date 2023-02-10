@@ -12,22 +12,20 @@
 </head>
 
 <body>
-    <div class="container">
-        <table>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Full Name</th>
-            </tr>
-            {%for user in users%}
-            <tr>
-                <td>{{user['first_name']}}</td>
-                <td>{{user['last_name']}}</td>
-                <td>{{user['first_name']}} {{user['last_name']}}</td>
-            </tr>
-            {%endfor%}
-        </table>
-    </div>
+    <table class="table table-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Full Name</th>
+        </tr>
+        {%for user in users%}
+        <tr>
+            <td>{{user['first_name']}}</td>
+            <td>{{user['last_name']}}</td>
+            <td>{{user['first_name']}} {{user['last_name']}}</td>
+        </tr>
+        {%endfor%}
+    </table>
 </body>
 
 </html>

@@ -1,22 +1,23 @@
 class BankAccount:
 
-    Total_Balance = []
+    all_accounts = []
     # don't forget to add some default values for these parameters!
     def __init__(self, first_name, last_name, int_rate, balance=0): # This is a constructor method that gets called when an instance of the class is made.
         self.first_name = first_name
         self.last_name = last_name
         self.int_rate = int_rate
         self.balance = balance
-        BankAccount.Total_Balance.append(self) # This will add the instances to the Total_Balance Variable
+        BankAccount.all_accounts.append(self) # This will add the instances to the all_accounts Variable
 
-# deposit(self, amount) - increases the account balance by the given amount
+    # deposit(self, amount) - increases the account balance by the given amount
     def deposit(self, amount): #This method will add  the account balance by the given amount
         self.balance += amount
         return self
 
-# withdraw(self, amount) - decreases the account balance by the given amount if there are sufficient funds;
-# if there is not enough money, print a message "Insufficient funds: Charging a $5 fee" and deduct $5
-    def withdraw(self, amount): # This method will decrease the balance by the amount if there is sufficient funds if not it will print(Insufficient funds: Charging a $5 fee")
+    # withdraw(self, amount) - decreases the account balance by the given amount if there are sufficient funds;
+    # if there is not enough money, print a message "Insufficient funds: Charging a $5 fee" and deduct $5
+    #This method will decrease the balance by the amount if there is sufficient funds if not it will print(Insufficient funds: Charging a $5 fee")
+    def withdraw(self, amount): 
         if self.balance > amount:
             self.balance -= amount
             print(f"{self.first_name} {self.last_name}: Withdrawn ${amount}. Available balance: ${self.balance}")
@@ -25,8 +26,9 @@ class BankAccount:
             self.balance -= 5
         return self
 
-# yield_interest(self) - increases the account balance by the current balance * the interest rate (as long as the balance is positive)
-    def yield_interest(self): #This method will make the account balance go up by mulitplying the current balance and whatever interest rate is given.
+    # yield_interest(self) - increases the account balance by the current balance * the interest rate (as long as the balance is positive)
+    #This method will make the account balance go up by mulitplying the current balance and whatever interest rate is given.
+    def yield_interest(self): 
         if self.balance > 0:
             self.balance += (self.balance * self.int_rate)
             print(f"Balance After Yield Interest: {self.balance}")
@@ -38,9 +40,9 @@ class BankAccount:
     
     
     @classmethod
-    def display_balance(cls):  #This class method iterates through the variable Total_Balance and prints the account name, interest rate, and balance. It also has the instance attributes name, int_rate, balance.
+    def display_balance(cls):  #This class method iterates through the variable all_accounts and prints the account name, interest rate, and balance. It also has the instance attributes name, int_rate, balance.
         print("Account Info:")
-        for user_account in cls.Total_Balance:
+        for user_account in cls.all_accounts:
             print(f"User: {user_account.first_name} {user_account.last_name}, Interest rate: {user_account.int_rate} Balance: ${user_account.balance}")
         return user_account
 
@@ -59,8 +61,8 @@ class User:
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
-        self.checking = BankAccount(self.first_name, self.last_name, 0.1, 0) #instance of the bank account class.
-        self.saving = BankAccount(self.first_name, self.last_name, 0.2, 0)
+        self.checking = BankAccount(0.1, 0) #instance of the bank account class.
+        self.saving = BankAccount(0.2, 0)
 
     # Making a deposit to checking or savings using the deposit method defined in the bankaccount class
     def make_deposit(self, amount, account):
