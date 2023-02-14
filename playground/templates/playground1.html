@@ -16,9 +16,12 @@
             {% if boxes % 2 == 1 %}
                 <img src="{{ url_for('static', filename='dog.jpeg') }}" id="dog" alt="australian shepeard">
                 {% else %}
-                    <img src="{{ url_for('static', filename='dog1.jpeg') }}" id="dog" alt="australian shepeard">
+                <img src="{{ url_for('static', filename='dog1.jpeg') }}" id="dog" alt="australian shepeard">
             {% endif %}
-        </div>
+            {% if boxes % 10 == 5%}
+            <img src="{{ url_for('static', filename='german.jpeg') }}" id="dog" alt="german shepeard">
+            {% endif %}
+        </div> 
         {%endfor%}
     </div>
     
