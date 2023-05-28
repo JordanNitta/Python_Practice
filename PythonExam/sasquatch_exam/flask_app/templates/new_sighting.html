@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>New Sighting</title>
+</head>
+<body>
+    <header class="container d-flex ">
+        <div class="col-6 d-flex">
+            <h2>Sasquatch Websighting</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout" style="margin-left: 2rem">Log Out</a>
+        </div>
+    </header>
+    <h3>Welcome, {{session.first_name}} {{session.last_name}}</h3>
+    <div class="container mt-4">
+        <h2>Report A Sighting</h2>
+        <form action="/process/sighting" method="post">
+            <input type="hidden" name="user_id" value="{{session.user_id}}">
+            <div class="mb-4 d-flex">
+                <label for="location" class="form-label col-sm-1">Location:</label>
+                <div class="col-sm-4">
+                    {% with error_instructions_messages = get_flashed_messages(category_filter = ['error_location']) %} <!-- declare a variable called messages -->
+                    <input type="text" class="form-control" name="location" style="margin-left: 10px;">
+                    {% if error_instructions_messages %} <!-- check if there are any messages -->
+                    {% for message in error_instructions_messages %} <!-- loop through the messages -->
+                        <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+
+            <div class="mb-4 d-flex">
+                <label for="what_happened" class="form-label col-sm-1">What Happended:</label>
+                <div class="col-sm-4">
+                    {% with error_messages = get_flashed_messages(category_filter = ['error_what_happened']) %} <!-- declare a variable called messages -->
+                    <textarea class="form-control" name="what_happened"style="height: 100px; margin-left: 10px;"></textarea>
+                    {% if error_messages %} <!-- check if there are any messages -->
+                    {% for message in error_messages %} <!-- loop through the messages -->
+                        <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                
+            </div>
+            <div class="mb-3">
+                <label for="date_sited" class="form-label">Date Of Siting:</label>
+                {% with date_message = get_flashed_messages(category_filter = ['error_date']) %} <!-- declare a variable called messages -->
+                <input type="date" name="date_sited">
+                {% if date_messages %} <!-- check if there are any messages -->
+                    {% for message in date_messages %} <!-- loop through the messages -->
+                        <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+            </div>
+
+            <div class="mb-3">
+                <label for="number_sighted" class="form-label"># of Sasquatches</label><br>
+                {% with number_message = get_flashed_messages(category_filter = ['error_number']) %} <!-- declare a variable called messages -->
+                <input type="number "lass="form-control" name="number_sighted" value="0">
+                {% if number_message %} <!-- check if there are any messages -->
+                {% for message in number_messages %} <!-- loop through the messages -->
+                    <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+            <button type="submit" class="btn btn-primary">Report Sighting</button>
+        </form>
+    </div>
+</body>
+</html>
